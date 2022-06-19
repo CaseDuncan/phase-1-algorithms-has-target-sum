@@ -1,5 +1,15 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for(let x=0; x,array.length; x++){
+    const comp = target-array[x]
+
+    for(let y=x+1; y<array.length; y++ )
+      if(array[y]===comp){
+        return true;
+      }
+    
+  }
+ return false;
 }
 
 /* 
@@ -8,6 +18,9 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  define a function called target sum the should should take in two arguments an array and a target value
+  the fuction outputs true if any pair of numbers in the array adds up to 10 or 25.
+  iterate over the array and subtract the array from the target value
 */
 
 /*
@@ -29,6 +42,15 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  // Negative numbers?
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([-7, 10, 4, 8], 3));
+
+  console.log("");
+  // Multiple pairs?
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([1, 2, 3, 4], 5));
 }
 
 module.exports = hasTargetSum;
